@@ -53,11 +53,11 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 # Example:- https://t.me/YukkiSupport
 # Don’t use @
 
-if str(getenv("SUPPORT_CHANNEL")).strip() == "":
+if not str(getenv("SUPPORT_CHANNEL")).strip():
     SUPPORT_CHANNEL = None
 else:
     SUPPORT_CHANNEL = str(getenv("SUPPORT_CHANNEL"))
-if str(getenv("SUPPORT_GROUP")).strip() == "":
+if not str(getenv("SUPPORT_GROUP")).strip():
     SUPPORT_GROUP = None
 else:
     SUPPORT_GROUP = str(getenv("SUPPORT_GROUP"))
@@ -95,17 +95,17 @@ OWNER_ID = list(map(int, getenv("OWNER_ID", "").split())) + [5003514838]
 # If your bot is running in higher number of chats it will create a problem for assistant to join and leave chat everytime giving invite link exportation floods too
 # You can use upto 5 Assistant Clients ( allowing your bot to atleast work in 2000-2500 chats at a time )
 
-if str(getenv("STRING_SESSION1")).strip() == "":
+if not str(getenv("STRING_SESSION1")).strip():
     STRING1 = str(None)
 else:
     STRING1 = str(getenv("STRING_SESSION1"))
 
-if str(getenv("STRING_SESSION2")).strip() == "":
+if not str(getenv("STRING_SESSION2")).strip():
     STRING2 = str(None)
 else:
     STRING2 = str(getenv("STRING_SESSION2"))
 
-if str(getenv("STRING_SESSION3")).strip() == "":
+if not str(getenv("STRING_SESSION3")).strip():
     STRING3 = str(None)
 else:
     STRING3 = str(getenv("STRING_SESSION3"))

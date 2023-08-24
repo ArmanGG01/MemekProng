@@ -33,7 +33,7 @@ from Yukki.Utilities.youtube import (get_m3u8, get_yt_info_id,
 loop = asyncio.get_event_loop()
 
 __MODULE__ = "Play"
-__HELP__ = f"""
+__HELP__ = """
 
 /play [Reply to any Audio or Video] or [YT Link] or [Music Name]
 - Stream Audio + Video on Voice Chat
@@ -68,10 +68,8 @@ async def quality_markup(_, CallbackQuery):
             "**No Limit Defined for Video Calls**\n\nSet a Limit for Number of Maximum Video Calls allowed on Bot by /set_video_limit [Sudo Users Only]"
         )
     count = len(await get_active_video_chats())
-    if int(count) == int(limit):
-        if await is_active_video_chat(CallbackQuery.message.chat.id):
-            pass
-        else:
+    if count == int(limit):
+        if not await is_active_video_chat(CallbackQuery.message.chat.id):
             return await CallbackQuery.answer(
                 "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
                 show_alert=True,
@@ -85,8 +83,6 @@ async def quality_markup(_, CallbackQuery):
                 "Live Streaming Playing...Stop it to play music",
                 show_alert=True,
             )
-        else:
-            pass
     except:
         pass
     await CallbackQuery.answer()
@@ -112,10 +108,8 @@ async def Live_Videos_Stream(_, CallbackQuery):
             "**No Limit Defined for Video Calls**\n\nSet a Limit for Number of Maximum Video Calls allowed on Bot by /set_video_limit [Sudo Users Only]"
         )
     count = len(await get_active_video_chats())
-    if int(count) == int(limit):
-        if await is_active_video_chat(CallbackQuery.message.chat.id):
-            pass
-        else:
+    if count == int(limit):
+        if not await is_active_video_chat(CallbackQuery.message.chat.id):
             return await CallbackQuery.answer(
                 "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
                 show_alert=True,
